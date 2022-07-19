@@ -25,7 +25,7 @@ def main(argv):
     json_file: dict = json.load(file)
 
     for record in json_file['Records']:
-        if 'VjkdK50h' in str(record):
+        if 'Backup' in str(record):
             print(json.dumps(record, indent=4))
             print()
 
