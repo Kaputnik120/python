@@ -36,6 +36,43 @@ print(f'Slice (saved) {saved_slice}: {number_list[saved_slice]}')
 
 # Tuples
 print_section_break('tuples')
+# Reminder: Tuples are immutable and fixed length in comparison to lists
+some_tuple = (1, 2)
+print(f'Tuple index 0 = {some_tuple[0]} and 1 = {some_tuple[1]}')
+tuple_list = [(1, 2), (3, 4)]
+print(f'First index of first tuple: {tuple_list[0][0]}')
+print(f'Second index of second tuple: {tuple_list[1][1]}')
+print(f'Is in list? {(1, 2) in tuple_list}')
 
+tuple_list_unequal = [(1, 2), (3, 4), (5, 6, 'hello')]
+print(f'Is (1, 2) in List? {(1, 2) in tuple_list_unequal}')
+print(f'Is (5, 6) in List? {(5, 6) in tuple_list_unequal}')
+print('Is (5, 6, \'hello\') in List? {0}'.format((5, 6, 'hello') in tuple_list_unequal))
+
+tuple_in_tuple = (1, (2, 3))
+print(f'Tuple in tuple: {tuple_in_tuple[1][1]}')
+
+tuple_with_numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+for number in tuple_with_numbers:
+    print(f'number is {number}')
+print(f'Tuple slice {tuple_with_numbers[5::-1]}')
+
+first_tuple = (1, 2)
+second_tuple = (3, 4)
+print(f'Tuples added {first_tuple + second_tuple}')
+print(f'Tuples doubled {first_tuple * 2}')
+
+print(f'Tuple length: {len(tuple_with_numbers)}')
+print(f'Tuple min: {min(tuple_with_numbers)}')
+print(f'Tuple min on complex tuples {min(((1, 2), (3, 4)))}')
+print(f'Tuple min on complex tuples {min(((4, 1), (3, 4)))}')
+
+# Misc
+print_section_break('misc')
+a, b = 1, 2
+print(f'a={a}')
+print(f'b={b}')
+
+# End
 print()
 print()
