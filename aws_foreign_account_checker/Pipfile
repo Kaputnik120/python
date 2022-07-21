@@ -8,7 +8,7 @@ requests = "*"
 boto3 = "*"
 
 [dev-packages]
-boto3-stubs = {extras = ["cloudformation"], version = "*"}
+boto3-stubs = {extras = ["iam"], version = "*"}
 
 [requires]
 python_version = "3.10"

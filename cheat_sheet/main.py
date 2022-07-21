@@ -67,11 +67,19 @@ print(f'Tuple min: {min(tuple_with_numbers)}')
 print(f'Tuple min on complex tuples {min(((1, 2), (3, 4)))}')
 print(f'Tuple min on complex tuples {min(((4, 1), (3, 4)))}')
 
-# Misc
-print_section_break('misc')
+# Unpacking
+print_section_break('unpacking')
 a, b = 1, 2
-print(f'a={a}')
-print(f'b={b}')
+print(f'Unpacking variable a={a}')
+print(f'Unpacking variable b={b}')
+# c, d = 1 => TypeError: cannot unpack non-iterable int object
+# e, f, g = 1, 2 => ValueError: not enough values to unpack (expected 3, got 2)
+
+(a, b, c) = (1, 2, 3)
+print(f'Unpacking a tuple of variables: {a} {b} {c}')
+
+a, b, c = (1, 2, 3)
+print(f'Unpacking a tuple to variables: {a} {b} {c}')
 
 # End
 print()
