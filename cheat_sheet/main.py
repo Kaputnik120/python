@@ -1,3 +1,6 @@
+some_global_variable = 'global'
+
+
 def print_section_break(title: str, add_leading_line_breaks=True):
     if add_leading_line_breaks:
         print()
@@ -80,6 +83,103 @@ print(f'Unpacking a tuple of variables: {a} {b} {c}')
 
 a, b, c = (1, 2, 3)
 print(f'Unpacking a tuple to variables: {a} {b} {c}')
+
+# Iterables
+print_section_break('iterables')
+# list, dict, tuple, set, str
+# defined methods: sum, sorted, any, all, max, min
+
+print(f'Any is true? {any([True, False, False])}')
+print(f'All are true? {all([True, True, True, True])}')
+print(f'Sum {sum((1, 2, 3))}')
+some_string = 'cba'
+print(f'Sorting a string {sorted(some_string)}')
+
+some_list = [1, 2, 3, 4]
+del some_list[2:]
+print(some_list)
+
+# List
+print([1, 2, 3] + [4, 5, 6])
+print([1, 2, 3, 4] * 2)
+
+# Set
+print({1, 2, 3} - {1, 2})  # Difference
+print({1, 2, 3} & {1, 2})  # Intersection
+print({1, 2, 3} | {4, 5, 6})  # Union
+print({1, 2, 3} ^ {2, 3, 4, 5, 6})  # Symmetric difference (elements not contained in both)
+
+print(frozenset((1, 2, 3)))  # no modifications allowed
+
+# Dict
+some_dict = {'a': 12, 'b': 13}
+# arithmetic operators are not defined for dict
+print('Iterating a dictionary')
+for key, value in some_dict.items():  # Unpacking happens here
+    print(f'Unpacked: {key} : {value}')
+
+for item in some_dict.items():  # Unpacking happens here
+    print(f'Packed: {item}')
+
+# Functions and scopes
+print_section_break('function scopes')
+
+
+def outer_func():
+    # Scopes
+    non_local_variable = 'non_Local'
+
+    # noinspection PyShadowingNames
+    def inner_func():
+        non_local_variable = 'local'
+        print(f'This is the overwritten local variable of an outer scope: {non_local_variable}')
+
+        some_global_variable = 'local'
+        print(f'This is the overwritten local variable of the global scope: {some_global_variable}')
+        print()
+
+    def other_inner_func():
+        nonlocal non_local_variable
+        print(f'This is the variable of an outer scope: {non_local_variable}')
+
+        global some_global_variable
+        print(f'This is the variable of the global scope: {some_global_variable}')
+        print()
+
+    inner_func()
+    other_inner_func()
+
+
+outer_func()
+
+# Function parameters
+print_section_break('function parameters')
+
+
+def some_func(a, b, c=3):
+    print(f'Printing some_func result: {a} {b} {c}')
+
+
+some_func(1, 2, 3)
+some_func(*(1, 2, 3))
+some_func(**{'a': 1, 'b': 2, 'c': 3})
+some_func(b=2, a=1, c=3)
+some_func(b=2, a=1)
+
+
+def some_args_func(*args):
+    print(f'Printing some_args_func result: {args}')
+
+
+some_args_func(1, 2, 3)
+
+
+def some_kwargs_func(**kwargs):
+    print(f'Printing some_kwargs_func result: {kwargs}')
+
+
+some_kwargs_func(a=1, b=2, c=3)
+some_kwargs_func(**{'a': 1, 'b': 2, 'c': 3})
 
 # End
 print()
