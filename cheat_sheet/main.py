@@ -103,6 +103,18 @@ print(some_list)
 print([1, 2, 3] + [4, 5, 6])
 print([1, 2, 3, 4] * 2)
 
+complex_tuple = ((1, 2), (3, 4), (5, 6), (6, 7))
+
+print(f'List comprehension simple: {[number_tuple for number_tuple in complex_tuple]}')
+print(f'List comprehension expression: {[number_tuple[0] for number_tuple in complex_tuple]}')
+print(f'List comprehension condition: {[number_tuple[0] for number_tuple in complex_tuple if number_tuple[1] < 5]}')
+print(
+    f'List comprehension nested condition: {[number_tuple[0] for number_tuple in complex_tuple if number_tuple[1] < 5 if number_tuple[0] > 1]}')
+
+matrix = [[1, 2], [3, 4], [5, 6], [7, 8]]
+transpose = [[row[i] for row in matrix] for i in range(2)]
+print(f'List comprehension nested loop: {transpose}')
+
 # Set
 print({1, 2, 3} - {1, 2})  # Difference
 print({1, 2, 3} & {1, 2})  # Intersection
